@@ -26,7 +26,7 @@ API Endpoints
 {
   "name": "Himanshu Garg",
   "bookingAmount": 1000,
-  "state": "Rajasthan",
+  "state": "interstate",
   "status": "finished"
 }
 ```
