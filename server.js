@@ -17,5 +17,5 @@ app.use('/api/bookings', bookingRoutes);
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`GST API running on http://localhost:${PORT}`);
+    console.log(`GST API running on Port:${PORT}`);
 });
