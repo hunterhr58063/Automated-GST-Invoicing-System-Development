@@ -65,7 +65,7 @@ const processGST = async () => {
     for (const booking of bookings) {
         console.log(`Processing GST for Booking ID: ${booking._id}`);
         try {
-            const gstResponse = await axios.post('http://localhost:5000/api/bookings/calculate-gst', {
+            const gstResponse = await axios.post(`${process.env.BASEAPI_URL}/bookings/calculate-gst`, {
                 bookingAmount: booking.bookingAmount,
                 state: booking.state
             });
@@ -76,7 +76,7 @@ const processGST = async () => {
                 sgst: gstResponse.data.sgst
             });
 
-            const filingResponse = await axios.post('http://localhost:5000/api/bookings/file-gst', {
+            const filingResponse = await axios.post(`${process.env.BASEAPI_URL}/bookings/file-gst`, {
                 bookingId: booking._id,
                 gstDetails: gstResponse.data
             });

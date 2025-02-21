@@ -1,16 +1,18 @@
 GST API Documentation
 This document provides a detailed overview of the GST API, including its endpoints, request/response formats, database schema, and setup instructions.
 Setup Instructions
-1. Clone the repository: `git clone Automated-GST-Invoicing-System-Development`
+
+1. Clone the repository: `git clone https://github.com/hunterhr58063/Automated-GST-Invoicing-System-Development.git`
 2. Install dependencies: `npm install`
 3. Create a `.env` file with the following variables:
    - `PORT=5000`
    - `MONGO_URI=your_mongodb_connection_string`
+   - `BASEAPI_URL=your base url`
 4. Start the server: `npm start`
-5. 
-Database Schema
+5. Database Schema
 
 Bookings Collection:
+
 - `name` (String): Customer Name
 - `bookingAmount` (Number): Amount booked
 - `state` (String): State of booking
@@ -19,9 +21,11 @@ Bookings Collection:
 - `gstFiled` (Boolean): Whether GST is filed or not
 
 API Endpoints
+
 1. Add Booking
-**Endpoint:** `POST /api/bookings/add`
-**Request Body:**
+   **Endpoint:** `POST /api/bookings/add`
+   **Request Body:**
+
 ```json
 {
   "name": "Himanshu Garg",
@@ -30,23 +34,29 @@ API Endpoints
   "status": "finished"
 }
 ```
+
 **Response:**
+
 ```json
 {
   "message": "Booking added successfully",
   "booking": { ... }
 }
 ```
+
 2. Calculate GST
-**Endpoint:** `POST /api/bookings/calculate-gst`
-**Request Body:**
+   **Endpoint:** `POST /api/bookings/calculate-gst`
+   **Request Body:**
+
 ```json
 {
   "bookingAmount": 1000,
   "state": "Maharashtra"
 }
 ```
+
 **Response:**
+
 ```json
 {
   "gstRate": 18,
@@ -56,18 +66,23 @@ API Endpoints
   "status": "GST Calculated Successfully"
 }
 ```
+
 3. File GST
-**Endpoint:** `POST /api/bookings/file-gst`
-**Request Body:**
+   **Endpoint:** `POST /api/bookings/file-gst`
+   **Request Body:**
+
 ```json
 {
   "bookingId": "1234567890",
   "gstDetails": { ... }
 }
 ```
+
 **Response:**
+
 ```json
 {
   "gstFilingStatus": "Filed Successfully",
   "referenceId": "GST-12345"
 }
+```
